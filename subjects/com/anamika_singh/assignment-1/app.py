@@ -1,6 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+"""
+    LossPlotter Class
+    Author: Sanjeev Kumar Pandey
+    Date: March 22, 2025
+    Description: This class initializes random weights and biases,
+    computes predictions using the sigmoid function, and plots the loss function.
+ """
 
 class LossPlotter:
     def __init__(self, count=10):
@@ -24,6 +31,7 @@ class LossPlotter:
         for i in range(self.count):
             predictions = []  # Temporary list for each (w, b) pair
             for x in self.x_values:
+                print(f"weights[{i}]: {self.weights[i]}, biases[{i}]: {self.biases[i]}")
                 predictions.append(self.sigmoid(x, self.weights[i], self.biases[i]))  # Compute sigmoid
             print(f"predictions[{i}]: {predictions}")
             y_preds.append(predictions)  # Store predictions for the current (w, b)
@@ -60,7 +68,8 @@ class LossPlotter:
         plt.title("Loss Function Plot with (w, b) Annotations")
         plt.legend()
         plt.grid()
-        plt.show()
+        plt.savefig('loss_plot.png')
+        plt.close()
 
 
 # Create an instance and run the plot
