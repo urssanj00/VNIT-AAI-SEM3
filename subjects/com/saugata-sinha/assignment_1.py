@@ -136,7 +136,7 @@ def inception_module(input_dim, module_params):
         'total_ops': total_ops
     }
 
-def analyze_googlenet():
+def analyze_googlenet1():
     # Input dimensions (RGB image)
     current_dim = (3, 224, 224)
     total_params = 0
@@ -213,6 +213,155 @@ def analyze_googlenet():
     print("=" * 70)
     print(f"Total trainable parameters: {total_params:,}")
     print(f"Total operations: {total_ops:,}")
+
+
+def analyze_googlenet():
+    current_dim = (3, 224, 224)  # Input RGB image
+    total_params = 0
+    total_ops = 0
+
+    def pool_output(dim, k, s, p):
+        c, h, w = dim
+        h_out = ((h - k + 2 * p) // s) + 1
+        w_out = ((w - k + 2 * p) // s) + 1
+        return (c, h_out, w_out)
+
+    layers = [
+        {'type': 'conv', 'params': {'h': 7, 'w': 7, 'stride': 2, 'padding': 3, 'num_filters': 64}},  # 1
+        {'type': 'pool', 'params': {'h': 3, 'w': 3, 'stride': 2, 'padding': 1}},                    # 2 - MaxPool
+        {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 64}}, # 3
+        {'type': 'conv', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 192}},# 4
+        {'type': 'pool', 'params': {'h': 3, 'w': 3, 'stride': 2, 'padding': 1}},                    # 5 - MaxPool
+
+        # Inception modules
+        {'type': 'inception', 'params': {  # 6 - 3a
+            'branches': [
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 64}},
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 96}},
+                {'type': 'conv', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 128}},
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 16}},
+                {'type': 'conv', 'params': {'h': 5, 'w': 5, 'stride': 1, 'padding': 2, 'num_filters': 32}},
+                {'type': 'pool', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 32}}
+            ]
+        }},
+        {'type': 'inception', 'params': {  # 7 - 3b
+            'branches': [
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 128}},
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 128}},
+                {'type': 'conv', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 192}},
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 32}},
+                {'type': 'conv', 'params': {'h': 5, 'w': 5, 'stride': 1, 'padding': 2, 'num_filters': 96}},
+                {'type': 'pool', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 64}}
+            ]
+        }},
+        {'type': 'pool', 'params': {'h': 3, 'w': 3, 'stride': 2, 'padding': 1}},  # 8 - MaxPool
+
+        {'type': 'inception', 'params': {  # 9 - 4a
+            'branches': [
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 192}},
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 96}},
+                {'type': 'conv', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 208}},
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 16}},
+                {'type': 'conv', 'params': {'h': 5, 'w': 5, 'stride': 1, 'padding': 2, 'num_filters': 48}},
+                {'type': 'pool', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 64}}
+            ]
+        }},
+        {'type': 'inception', 'params': {  # 10 - 4b
+            'branches': [
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 160}},
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 112}},
+                {'type': 'conv', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 224}},
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 24}},
+                {'type': 'conv', 'params': {'h': 5, 'w': 5, 'stride': 1, 'padding': 2, 'num_filters': 64}},
+                {'type': 'pool', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 64}}
+            ]
+        }},
+        {'type': 'inception', 'params': {  # 11 - 4c
+            'branches': [
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 128}},
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 128}},
+                {'type': 'conv', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 256}},
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 24}},
+                {'type': 'conv', 'params': {'h': 5, 'w': 5, 'stride': 1, 'padding': 2, 'num_filters': 64}},
+                {'type': 'pool', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 64}}
+            ]
+        }},
+        {'type': 'inception', 'params': {  # 12 - 4d
+            'branches': [
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 112}},
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 144}},
+                {'type': 'conv', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 288}},
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 32}},
+                {'type': 'conv', 'params': {'h': 5, 'w': 5, 'stride': 1, 'padding': 2, 'num_filters': 64}},
+                {'type': 'pool', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 64}}
+            ]
+        }},
+        {'type': 'inception', 'params': {  # 13 - 4e
+            'branches': [
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 256}},
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 160}},
+                {'type': 'conv', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 320}},
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 32}},
+                {'type': 'conv', 'params': {'h': 5, 'w': 5, 'stride': 1, 'padding': 2, 'num_filters': 128}},
+                {'type': 'pool', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 128}}
+            ]
+        }},
+        {'type': 'pool', 'params': {'h': 3, 'w': 3, 'stride': 2, 'padding': 1}},  # 14 - MaxPool
+
+        {'type': 'inception', 'params': {  # 15 - 5a
+            'branches': [
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 256}},
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 160}},
+                {'type': 'conv', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 320}},
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 32}},
+                {'type': 'conv', 'params': {'h': 5, 'w': 5, 'stride': 1, 'padding': 2, 'num_filters': 128}},
+                {'type': 'pool', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 128}}
+            ]
+        }},
+        {'type': 'inception', 'params': {  # 16 - 5b
+            'branches': [
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 384}},
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 192}},
+                {'type': 'conv', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 384}},
+                {'type': 'conv', 'params': {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 48}},
+                {'type': 'conv', 'params': {'h': 5, 'w': 5, 'stride': 1, 'padding': 2, 'num_filters': 128}},
+                {'type': 'pool', 'params': {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 128}}
+            ]
+        }},
+        {'type': 'pool', 'params': {'h': 7, 'w': 7, 'stride': 1, 'padding': 0}},  # 17 - AvgPool
+        {'type': 'dense', 'params': {'nodes': 1000}}  # 18 - Fully connected classifier
+    ]
+
+    print("GoogleNet Architecture Analysis (All 22 Layers):")
+    print("=" * 70)
+    print(f"Input dimension: {current_dim}")
+    print("-" * 70)
+
+    for i, layer in enumerate(layers):
+        if layer['type'] == 'inception':
+            result = inception_module(current_dim, layer['params'])
+            print(f"Layer {i + 1} (Inception module):")
+        elif layer['type'] == 'pool':
+            result = {'output_dim': pool_output(current_dim, layer['params']['h'], layer['params']['stride'], layer['params']['padding']),
+                      'trainable_params': 0, 'dot_products': 0, 'total_ops': 0}
+            print(f"Layer {i + 1} (Pooling layer):")
+        else:
+            result = layer_computation(layer['type'], layer['params'], current_dim)
+            print(f"Layer {i + 1} ({layer['type']}):")
+
+        print(f"  Output dimension: {result['output_dim']}")
+        print(f"  Trainable parameters: {result['trainable_params']:,}")
+        print(f"  Total operations: {result['total_ops']:,}")
+        print("-" * 50)
+
+        total_params += result['trainable_params']
+        total_ops += result['total_ops']
+        current_dim = result['output_dim']
+
+    print("=" * 70)
+    print(f"Total trainable parameters: {total_params:,}")
+    print(f"Total operations: {total_ops:,}")
+
 
 # Run the analysis
 analyze_googlenet()
