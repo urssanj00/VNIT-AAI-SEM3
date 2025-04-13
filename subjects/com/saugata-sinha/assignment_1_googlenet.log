@@ -1,0 +1,225 @@
+C:\Users\urssa\AppData\Local\Microsoft\WindowsApps\python3.11.exe C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\subjects\com\saugata-sinha\assignment_1_googlenet.py
+GoogleNet Architecture Analysis (All 22 Layers):
+======================================================================
+Input dimension: (3, 224, 224)
+----------------------------------------------------------------------
+Layer 1 (conv):
+->Input Dimension : (3, 224, 224)
+->Filter Paramaters : {'h': 7, 'w': 7, 'stride': 2, 'padding': 3, 'num_filters': 64}
+  Output dimension: (64, 112, 112)
+  Trainable parameters: 9,472
+  Total operations: 235,225,088
+--------------------------------------------------
+Layer 2 (Pooling layer):
+->Input Dimension   : (64, 112, 112)
+->Filter Parameters : {'h': 3, 'w': 3, 'stride': 2, 'padding': 1}
+  Output dimension: (64, 56, 56)
+  Trainable parameters: 0
+  Total operations: 0
+--------------------------------------------------
+Layer 3 (conv):
+->Input Dimension : (64, 56, 56)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 64}
+  Output dimension: (64, 56, 56)
+  Trainable parameters: 4,160
+  Total operations: 25,489,408
+--------------------------------------------------
+Layer 4 (conv):
+->Input Dimension : (64, 56, 56)
+->Filter Paramaters : {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 192}
+  Output dimension: (192, 56, 56)
+  Trainable parameters: 110,784
+  Total operations: 693,030,912
+--------------------------------------------------
+Layer 5 (Pooling layer):
+->Input Dimension   : (192, 56, 56)
+->Filter Parameters : {'h': 3, 'w': 3, 'stride': 2, 'padding': 1}
+  Output dimension: (192, 28, 28)
+  Trainable parameters: 0
+  Total operations: 0
+--------------------------------------------------
+Layer 6 (Inception module):
+->Input Dimension : (192, 28, 28)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 64}
+->Input Dimension : (192, 28, 28)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 96}
+->Input Dimension : (192, 28, 28)
+->Filter Paramaters : {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 128}
+->Input Dimension : (192, 28, 28)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 16}
+->Input Dimension : (192, 28, 28)
+->Filter Paramaters : {'h': 5, 'w': 5, 'stride': 1, 'padding': 2, 'num_filters': 32}
+->Input Dimension : (192, 28, 28)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 32}
+  Output dimension: (368, 28, 28)
+  Trainable parameters: 415,088
+  Total operations: 649,992,448
+--------------------------------------------------
+Layer 7 (Inception module):
+->Input Dimension : (368, 28, 28)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 128}
+->Input Dimension : (368, 28, 28)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 128}
+->Input Dimension : (368, 28, 28)
+->Filter Paramaters : {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 192}
+->Input Dimension : (368, 28, 28)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 32}
+->Input Dimension : (368, 28, 28)
+->Filter Paramaters : {'h': 5, 'w': 5, 'stride': 1, 'padding': 2, 'num_filters': 96}
+->Input Dimension : (368, 28, 28)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 64}
+  Output dimension: (640, 28, 28)
+  Trainable parameters: 1,649,280
+  Total operations: 2,584,565,760
+--------------------------------------------------
+Layer 8 (Pooling layer):
+->Input Dimension   : (640, 28, 28)
+->Filter Parameters : {'h': 3, 'w': 3, 'stride': 2, 'padding': 1}
+  Output dimension: (640, 14, 14)
+  Trainable parameters: 0
+  Total operations: 0
+--------------------------------------------------
+Layer 9 (Inception module):
+->Input Dimension : (640, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 192}
+->Input Dimension : (640, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 96}
+->Input Dimension : (640, 14, 14)
+->Filter Paramaters : {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 208}
+->Input Dimension : (640, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 16}
+->Input Dimension : (640, 14, 14)
+->Filter Paramaters : {'h': 5, 'w': 5, 'stride': 1, 'padding': 2, 'num_filters': 48}
+->Input Dimension : (640, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 64}
+  Output dimension: (624, 14, 14)
+  Trainable parameters: 2,202,224
+  Total operations: 862,904,896
+--------------------------------------------------
+Layer 10 (Inception module):
+->Input Dimension : (624, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 160}
+->Input Dimension : (624, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 112}
+->Input Dimension : (624, 14, 14)
+->Filter Paramaters : {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 224}
+->Input Dimension : (624, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 24}
+->Input Dimension : (624, 14, 14)
+->Filter Paramaters : {'h': 5, 'w': 5, 'stride': 1, 'padding': 2, 'num_filters': 64}
+->Input Dimension : (624, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 64}
+  Output dimension: (648, 14, 14)
+  Trainable parameters: 2,481,672
+  Total operations: 972,434,400
+--------------------------------------------------
+Layer 11 (Inception module):
+->Input Dimension : (648, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 128}
+->Input Dimension : (648, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 128}
+->Input Dimension : (648, 14, 14)
+->Filter Paramaters : {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 256}
+->Input Dimension : (648, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 24}
+->Input Dimension : (648, 14, 14)
+->Filter Paramaters : {'h': 5, 'w': 5, 'stride': 1, 'padding': 2, 'num_filters': 64}
+->Input Dimension : (648, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 64}
+  Output dimension: (664, 14, 14)
+  Trainable parameters: 2,753,368
+  Total operations: 1,078,929,824
+--------------------------------------------------
+Layer 12 (Inception module):
+->Input Dimension : (664, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 112}
+->Input Dimension : (664, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 144}
+->Input Dimension : (664, 14, 14)
+->Filter Paramaters : {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 288}
+->Input Dimension : (664, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 32}
+->Input Dimension : (664, 14, 14)
+->Filter Paramaters : {'h': 5, 'w': 5, 'stride': 1, 'padding': 2, 'num_filters': 64}
+->Input Dimension : (664, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 64}
+  Output dimension: (704, 14, 14)
+  Trainable parameters: 3,017,920
+  Total operations: 1,182,610,688
+--------------------------------------------------
+Layer 13 (Inception module):
+->Input Dimension : (704, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 256}
+->Input Dimension : (704, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 160}
+->Input Dimension : (704, 14, 14)
+->Filter Paramaters : {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 320}
+->Input Dimension : (704, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 32}
+->Input Dimension : (704, 14, 14)
+->Filter Paramaters : {'h': 5, 'w': 5, 'stride': 1, 'padding': 2, 'num_filters': 128}
+->Input Dimension : (704, 14, 14)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 128}
+  Output dimension: (1024, 14, 14)
+  Trainable parameters: 4,686,848
+  Total operations: 1,836,642,304
+--------------------------------------------------
+Layer 14 (Pooling layer):
+->Input Dimension   : (1024, 14, 14)
+->Filter Parameters : {'h': 3, 'w': 3, 'stride': 2, 'padding': 1}
+  Output dimension: (1024, 7, 7)
+  Trainable parameters: 0
+  Total operations: 0
+--------------------------------------------------
+Layer 15 (Inception module):
+->Input Dimension : (1024, 7, 7)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 256}
+->Input Dimension : (1024, 7, 7)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 160}
+->Input Dimension : (1024, 7, 7)
+->Filter Paramaters : {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 320}
+->Input Dimension : (1024, 7, 7)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 32}
+->Input Dimension : (1024, 7, 7)
+->Filter Paramaters : {'h': 5, 'w': 5, 'stride': 1, 'padding': 2, 'num_filters': 128}
+->Input Dimension : (1024, 7, 7)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 128}
+  Output dimension: (1024, 7, 7)
+  Trainable parameters: 6,816,768
+  Total operations: 667,892,736
+--------------------------------------------------
+Layer 16 (Inception module):
+->Input Dimension : (1024, 7, 7)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 384}
+->Input Dimension : (1024, 7, 7)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 192}
+->Input Dimension : (1024, 7, 7)
+->Filter Paramaters : {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 384}
+->Input Dimension : (1024, 7, 7)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 48}
+->Input Dimension : (1024, 7, 7)
+->Filter Paramaters : {'h': 5, 'w': 5, 'stride': 1, 'padding': 2, 'num_filters': 128}
+->Input Dimension : (1024, 7, 7)
+->Filter Paramaters : {'h': 1, 'w': 1, 'stride': 1, 'padding': 0, 'num_filters': 128}
+  Output dimension: (1264, 7, 7)
+  Trainable parameters: 7,587,056
+  Total operations: 743,345,680
+--------------------------------------------------
+Layer 17 (Pooling layer):
+->Input Dimension   : (1264, 7, 7)
+->Filter Parameters : {'h': 7, 'w': 7, 'stride': 1, 'padding': 0}
+  Output dimension: (1264, 1, 1)
+  Trainable parameters: 0
+  Total operations: 0
+--------------------------------------------------
+Layer 18 (dense):
+->Input Dimension : (1264, 1, 1)
+  Output dimension: (1000,)
+  Trainable parameters: 1,265,000
+  Total operations: 2,527,000
+--------------------------------------------------
+======================================================================
+Total trainable parameters: 32,999,640
+Total operations: 11,535,591,144
+
+Process finished with exit code 0

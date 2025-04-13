@@ -1,0 +1,15 @@
+C:\Users\urssa\AppData\Local\Microsoft\WindowsApps\python3.11.exe C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\subjects\com\saugata-sinha\computation_load_usage.py
+->Input Dimension : (3, 224, 224)
+->Filter Paramaters : {'h': 3, 'w': 3, 'stride': 1, 'padding': 1, 'num_filters': 64}
+  Convolutional Layer Result
+  Output dimension: (64, 224, 224)
+  Trainable parameters: 1,792
+  Total operations: 170,196,992
+================================================================================
+->Input Dimension : (4096,)
+  Dense Layer Result:
+  Output dimension: (64, 224, 224)
+  Trainable parameters: 1,792
+  Total operations: 170,196,992
+
+Process finished with exit code 0

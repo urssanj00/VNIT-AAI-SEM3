@@ -68,6 +68,9 @@ def analyze_googlenet():
     total_ops = 0
 
     def pool_output(dim, k, s, p):
+        print(f"->Input Dimension   : {dim}")
+        print(f"->Filter Parameters : {{'h': {k}, 'w': {k}, 'stride': {s}, 'padding': {p}}}")
+
         c, h, w = dim
         h_out = ((h - k + 2 * p) // s) + 1
         w_out = ((w - k + 2 * p) // s) + 1
@@ -186,15 +189,16 @@ def analyze_googlenet():
 
     for i, layer in enumerate(layers):
         if layer['type'] == 'inception':
-            result = inception_module(current_dim, layer['params'])
             print(f"Layer {i + 1} (Inception module):")
+            result = inception_module(current_dim, layer['params'])
+
         elif layer['type'] == 'pool':
+            print(f"Layer {i + 1} (Pooling layer):")
             result = {'output_dim': pool_output(current_dim, layer['params']['h'], layer['params']['stride'], layer['params']['padding']),
                       'trainable_params': 0, 'dot_products': 0, 'total_ops': 0}
-            print(f"Layer {i + 1} (Pooling layer):")
         else:
-            result = ComputationLoad.layer_computation(layer['type'], layer['params'], current_dim)
             print(f"Layer {i + 1} ({layer['type']}):")
+            result = ComputationLoad.layer_computation(layer['type'], layer['params'], current_dim)
 
         print(f"  Output dimension: {result['output_dim']}")
         print(f"  Trainable parameters: {result['trainable_params']:,}")
