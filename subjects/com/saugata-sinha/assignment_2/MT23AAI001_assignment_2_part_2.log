@@ -1,0 +1,36 @@
+C:\Users\urssa\AppData\Local\Microsoft\WindowsApps\python3.11.exe C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\subjects\com\saugata-sinha\corrected_assignment_2\MT23AAI001_assignment_2_part_2_usage.py
+ConvLayer : Input Matrix:
+[[1 2 0 1]
+ [3 1 2 2]
+ [0 1 3 1]
+ [2 2 1 0]]
+ConvLayer before ReLU output : [[[0.35787586]
+  [0.36055814]
+  [0.08085561]]
+
+ [[0.56384506]
+  [0.24854975]
+  [0.53751799]]
+
+ [[0.08085561]
+  [0.36372426]
+  [0.61850811]]]
+Convolution Output:
+[[[0.35787586]
+  [0.36055814]
+  [0.08085561]]
+
+ [[0.56384506]
+  [0.24854975]
+  [0.53751799]]
+
+ [[0.08085561]
+  [0.36372426]
+  [0.61850811]]]
+final ConvLayer output [[0.35787586 0.36055814 0.08085561]
+ [0.56384506 0.24854975 0.53751799]
+ [0.08085561 0.36372426 0.61850811]]
+Pooling Output:
+[[0.56384506]]
+
+Process finished with exit code 0
