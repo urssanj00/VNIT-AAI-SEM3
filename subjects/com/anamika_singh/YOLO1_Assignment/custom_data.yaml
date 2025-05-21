@@ -1,0 +1,5 @@
+train: /Sanjeev/VNIT_CLASSES/VNIT-AAI-SEM3/custom_dataset_yolo/train_1
+val: /Sanjeev/VNIT_CLASSES/VNIT-AAI-SEM3/custom_dataset_yolo/test_1
+
+nc: 20  # number of classes
+names: ['bear', 'bird', 'bougainvillea', 'cat', 'cow', 'daisie', 'deer', 'dog', 'dolphin', 'elephant', 'rose', 'giraffe', 'hibiscus', 'horse', 'apple', 'tomato', 'kangaroo', 'lion', 'panda', 'zebra']  # class names

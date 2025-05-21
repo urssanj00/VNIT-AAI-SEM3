@@ -1,0 +1,414 @@
+C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\subjects\com\anamika_singh\YOLO1_Assignment>python programming_assignment_q3_3.py
+New https://pypi.org/project/ultralytics/8.3.141 available  Update with 'pip install -U ultralytics'
+Ultralytics 8.3.139  Python-3.11.9 torch-2.7.0+cpu CPU (Intel Core(TM) i7-8650U 1.90GHz)
+engine\trainer: agnostic_nms=False, amp=True, augment=False, auto_augment=randaugment, batch=16, bgr=0.0, box=7.5, cache=False, cfg=None, classes=None, close_mosaic=10, cls=0.5, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=custom_data.yaml, degrees=0.0, deterministic=True, device=cpu, dfl=1.5, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=50, erasing=0.4, exist_ok=False, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, half=False, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=640, int8=False, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=yolov8n.pt, momentum=0.937, mosaic=1.0, multi_scale=False, name=train, nbs=64, nms=False, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=None, rect=False, resume=False, retina_masks=False, save=True, save_conf=False, save_crop=False, save_dir=runs\detect\train, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=0, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=botsort.yaml, translate=0.1, val=True, verbose=True, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=8, workspace=None
+Overriding model.yaml nc=80 with nc=20
+
+                   from  n    params  module                                       arguments
+  0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]
+  1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]
+  2                  -1  1      7360  ultralytics.nn.modules.block.C2f             [32, 32, 1, True]
+  3                  -1  1     18560  ultralytics.nn.modules.conv.Conv             [32, 64, 3, 2]
+  4                  -1  2     49664  ultralytics.nn.modules.block.C2f             [64, 64, 2, True]
+  5                  -1  1     73984  ultralytics.nn.modules.conv.Conv             [64, 128, 3, 2]
+  6                  -1  2    197632  ultralytics.nn.modules.block.C2f             [128, 128, 2, True]
+  7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]
+  8                  -1  1    460288  ultralytics.nn.modules.block.C2f             [256, 256, 1, True]
+  9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]
+ 10                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']
+ 11             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]
+ 12                  -1  1    148224  ultralytics.nn.modules.block.C2f             [384, 128, 1]
+ 13                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']
+ 14             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]
+ 15                  -1  1     37248  ultralytics.nn.modules.block.C2f             [192, 64, 1]
+ 16                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]
+ 17            [-1, 12]  1         0  ultralytics.nn.modules.conv.Concat           [1]
+ 18                  -1  1    123648  ultralytics.nn.modules.block.C2f             [192, 128, 1]
+ 19                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]
+ 20             [-1, 9]  1         0  ultralytics.nn.modules.conv.Concat           [1]
+ 21                  -1  1    493056  ultralytics.nn.modules.block.C2f             [384, 256, 1]
+ 22        [15, 18, 21]  1    755212  ultralytics.nn.modules.head.Detect           [20, [64, 128, 256]]
+Model summary: 129 layers, 3,014,748 parameters, 3,014,732 gradients, 8.2 GFLOPs
+
+Transferred 319/355 items from pretrained weights
+Freezing layer 'model.22.dfl.conv.weight'
+train: Fast image access  (ping: 0.40.0 ms, read: 3.23.8 MB/s, size: 38.4 KB)
+train: Scanning C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1... 98 images, 16 backgrounds, 43 corr
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Bear_17.jpeg: ignoring corrupt image/label: Label class 21 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Bear_21_1.jpg: ignoring corrupt image/label: Label class 21 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Bear_3_2.jpg: ignoring corrupt image/label: Label class 21 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Bear_6.jpg: ignoring corrupt image/label: Label class 21 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Bird_4_3.jpg: ignoring corrupt image/label: Label class 79 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Bird_7_2.jpg: ignoring corrupt image/label: Label class 77 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Elephant_23_4.jpg: ignoring corrupt image/label: Label class 29 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Elephant_28_2.jpg: ignoring corrupt image/label: Label class 20 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Giraffe_21.jpeg: ignoring corrupt image/label: Label class 23 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Giraffe_21_1.jpg: ignoring corrupt image/label: Label class 23 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Giraffe_28_4.jpg: ignoring corrupt image/label: Label class 23 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Giraffe_6_2.jpg: ignoring corrupt image/label: Label class 23 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Lion_6.jpg: ignoring corrupt image/label: Label class 23 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Panda_18.jpeg: ignoring corrupt image/label: Label class 21 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Panda_20_1.jpg: ignoring corrupt image/label: Label class 21 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Panda_23.jpeg: ignoring corrupt image/label: Label class 21 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Panda_25_2.jpg: ignoring corrupt image/label: Label class 21 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Panda_3_2.jpg: ignoring corrupt image/label: Label class 21 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Tiger_27_4.jpg: ignoring corrupt image/label: Label class 22 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Tiger_8.jpg: ignoring corrupt image/label: Label class 23 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Zebra_28_1.jpg: ignoring corrupt image/label: Label class 22 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Zebra_30_3.jpg: ignoring corrupt image/label: Label class 22 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\Zebra_3_1.jpg: ignoring corrupt image/label: Label class 22 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\bear_1.jpg: ignoring corrupt image/label: Label class 21 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\bougainvillea_00004.jpg: ignoring corrupt image/label: Label class 58 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\cat_189.jpg: ignoring corrupt image/label: Label class 45 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\daisies_00022.jpg: ignoring corrupt image/label: Label class 50 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\dog_109.jpg: ignoring corrupt image/label: Label class 21 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\dog_260.jpg: ignoring corrupt image/label: Label class 27 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\gardenias_00026.jpg: ignoring corrupt image/label: Label class 58 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\gardenias_00051.jpg: ignoring corrupt image/label: Label class 58 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\hydrangeas_00013.jpg: ignoring corrupt image/label: Label class 58 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\hydrangeas_00026.jpg: ignoring corrupt image/label: Label class 58 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\img_p1_11.jpeg: ignoring corrupt image/label: Label class 54 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\img_p1_111.jpeg: ignoring corrupt image/label: Label class 47 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\img_p1_20appapp.jpeg: ignoring corrupt image/label: Label class 54 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\img_p1_72.jpeg: ignoring corrupt image/label: Label class 49 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\img_p1_92.jpeg: ignoring corrupt image/label: Label class 47 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\img_p2_100.jpeg: ignoring corrupt image/label: Label class 49 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\img_p2_69.jpeg: ignoring corrupt image/label: Label class 48 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\img_p3_46.jpeg: ignoring corrupt image/label: Label class 49 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\img_p3_58.jpeg: ignoring corrupt image/label: Label class 75 exceeds dataset class count 20. Possible class labels are 0-19
+train: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1\img_p3_70appapp.jpeg: ignoring corrupt image/label: Label class 49 exceeds dataset class count 20. Possible class labels are 0-19
+train: New cache created: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\train_1.cache
+C:\Users\urssa\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+val: Fast image access  (ping: 0.40.0 ms, read: 7.36.3 MB/s, size: 71.8 KB)
+val: Scanning C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1.cache... 28 images, 9 backgrounds, 11 co
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\Bear_10.jpg: ignoring corrupt image/label: Label class 21 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\Bird_15.jpeg: ignoring corrupt image/label: Label class 42 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\Zebra_20.jpeg: ignoring corrupt image/label: Label class 22 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\dog_442.jpg: ignoring corrupt image/label: Label class 77 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\hydrangeas_00070.jpg: ignoring corrupt image/label: Label class 58 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\img_p1_25.jpeg: ignoring corrupt image/label: Label class 75 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\img_p3_124.jpeg: ignoring corrupt image/label: Label class 50 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\img_p3_50.jpeg: ignoring corrupt image/label: Label class 47 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\lilies_00069.jpg: ignoring corrupt image/label: Label class 58 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\peonies_00006.jpg: ignoring corrupt image/label: Label class 58 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\peonies_00077.jpg: ignoring corrupt image/label: Label class 58 exceeds dataset class count 20. Possible class labels are 0-19
+C:\Users\urssa\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Plotting labels to runs\detect\train\labels.jpg...
+optimizer: 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically...
+optimizer: AdamW(lr=0.000417, momentum=0.9) with parameter groups 57 weight(decay=0.0), 64 weight(decay=0.0005), 63 bias(decay=0.0)
+Image sizes 640 train, 640 val
+Using 0 dataloader workers
+Logging results to runs\detect\train
+Starting training for 50 epochs...
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+       1/50         0G     0.7892      4.191      1.341         11        640: 100%|██████████| 4/4 [00:27<00:00,  6.90
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<0
+                   all         17          9          0          0          0          0
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+       2/50         0G     0.7977      4.271      1.364         16        640: 100%|██████████| 4/4 [00:23<00:00,  5.83
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:02<0
+                   all         17          9          0          0          0          0
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+       3/50         0G     0.7394      4.112      1.286         20        640: 100%|██████████| 4/4 [00:23<00:00,  5.81
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:02<0
+                   all         17          9          0          0          0          0
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+       4/50         0G     0.6739      3.966      1.267         19        640: 100%|██████████| 4/4 [00:26<00:00,  6.66
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<0
+                   all         17          9          0          0          0          0
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+       5/50         0G     0.6346      3.782      1.219         15        640: 100%|██████████| 4/4 [00:30<00:00,  7.58
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<0
+                   all         17          9          0          0          0          0
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+       6/50         0G     0.6584       3.85      1.238         16        640: 100%|██████████| 4/4 [00:31<00:00,  7.97
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:04<0
+                   all         17          9          0          0          0          0
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+       7/50         0G     0.6517      3.715      1.281         16        640: 100%|██████████| 4/4 [00:41<00:00, 10.27
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:05<0
+                   all         17          9        0.1     0.0667        0.1     0.0801
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+       8/50         0G     0.6487      3.555      1.215         19        640: 100%|██████████| 4/4 [00:44<00:00, 11.24
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<0
+                   all         17          9      0.111      0.233      0.209      0.148
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+       9/50         0G     0.6167      3.436      1.181         22        640: 100%|██████████| 4/4 [00:33<00:00,  8.47
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<0
+                   all         17          9     0.0461      0.233      0.202       0.15
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      10/50         0G     0.6602      3.328      1.129         16        640: 100%|██████████| 4/4 [00:30<00:00,  7.57
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:02<0
+                   all         17          9     0.0565        0.5      0.236      0.177
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      11/50         0G     0.6446      3.091       1.19         18        640: 100%|██████████| 4/4 [00:31<00:00,  7.79
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:02<0
+                   all         17          9       0.05        0.5      0.186      0.147
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      12/50         0G     0.5791      2.995      1.151         16        640: 100%|██████████| 4/4 [00:29<00:00,  7.42
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<0
+                   all         17          9      0.124        0.8      0.309      0.229
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      13/50         0G      0.682      2.936      1.266         17        640: 100%|██████████| 4/4 [00:32<00:00,  8.07
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:02<0
+                   all         17          9     0.0938          1      0.392       0.29
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      14/50         0G     0.7101      2.981      1.256          8        640: 100%|██████████| 4/4 [00:29<00:00,  7.45
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:02<0
+                   all         17          9     0.0833          1       0.45       0.35
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      15/50         0G     0.6377      2.794      1.261         17        640: 100%|██████████| 4/4 [00:31<00:00,  7.84
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<0
+                   all         17          9     0.0518          1       0.54      0.417
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      16/50         0G     0.6553      2.485      1.209         20        640: 100%|██████████| 4/4 [00:36<00:00,  9.20
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<0
+                   all         17          9      0.509      0.433      0.522      0.409
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      17/50         0G     0.6873      2.591      1.261         24        640: 100%|██████████| 4/4 [00:54<00:00, 13.52
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:05<00:00,  5.27s/it]
+                   all         17          9      0.638      0.297      0.472      0.366
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      18/50         0G     0.6339      2.472      1.178         24        640: 100%|██████████| 4/4 [00:51<00:00, 12.86s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:06<00:00,  6.72s/it]
+                   all         17          9      0.639      0.277      0.465      0.353
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      19/50         0G     0.6937      2.544      1.276         19        640: 100%|██████████| 4/4 [01:04<00:00, 16.24s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:05<00:00,  5.88s/it]
+                   all         17          9      0.861      0.267      0.427      0.308
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      20/50         0G     0.6271      2.389      1.198         17        640: 100%|██████████| 4/4 [00:49<00:00, 12.36s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:06<00:00,  6.06s/it]
+                   all         17          9      0.878      0.267      0.428      0.322
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      21/50         0G     0.6518      2.245      1.186         12        640: 100%|██████████| 4/4 [00:45<00:00, 11.40s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:05<00:00,  5.65s/it]
+                   all         17          9      0.973      0.323      0.487      0.351
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      22/50         0G     0.6789      2.044      1.264         16        640: 100%|██████████| 4/4 [00:39<00:00,  9.85s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:04<00:00,  4.02s/it]
+                   all         17          9      0.961      0.333       0.49      0.359
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      23/50         0G      0.655      2.201      1.206         14        640: 100%|██████████| 4/4 [00:35<00:00,  8.95s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<00:00,  3.62s/it]
+                   all         17          9      0.934      0.333       0.47      0.343
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      24/50         0G     0.6205       2.23      1.185         16        640: 100%|██████████| 4/4 [00:33<00:00,  8.37s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<00:00,  3.57s/it]
+                   all         17          9      0.915      0.333      0.464      0.328
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      25/50         0G     0.5582      2.058      1.185         17        640: 100%|██████████| 4/4 [00:36<00:00,  9.19s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:04<00:00,  4.44s/it]
+                   all         17          9      0.656      0.333      0.483      0.348
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      26/50         0G     0.6237       1.98       1.16         14        640: 100%|██████████| 4/4 [00:36<00:00,  9.08s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<00:00,  3.62s/it]
+                   all         17          9      0.649       0.38       0.53      0.367
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      27/50         0G     0.5437      1.979      1.124         19        640: 100%|██████████| 4/4 [00:35<00:00,  8.87s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<00:00,  3.73s/it]
+                   all         17          9      0.791      0.433      0.607      0.402
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      28/50         0G     0.5789      1.829      1.127         17        640: 100%|██████████| 4/4 [00:39<00:00,  9.84s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:04<00:00,  4.51s/it]
+                   all         17          9      0.832      0.433      0.604      0.426
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      29/50         0G     0.6148      1.904      1.174         21        640: 100%|██████████| 4/4 [00:39<00:00,  9.80s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<00:00,  3.88s/it]
+                   all         17          9      0.769      0.433      0.598      0.421
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      30/50         0G     0.5341      1.741      1.112         22        640: 100%|██████████| 4/4 [00:35<00:00,  8.81s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<00:00,  3.68s/it]
+                   all         17          9      0.658      0.433      0.693      0.458
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      31/50         0G     0.7069      2.187      1.247         12        640: 100%|██████████| 4/4 [00:38<00:00,  9.60s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:04<00:00,  4.80s/it]
+                   all         17          9      0.576      0.433      0.599      0.413
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      32/50         0G      0.571      1.905      1.149         15        640: 100%|██████████| 4/4 [00:42<00:00, 10.70s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<00:00,  3.97s/it]
+                   all         17          9      0.632      0.433      0.596      0.409
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      33/50         0G     0.5401      1.713      1.118         17        640: 100%|██████████| 4/4 [00:39<00:00,  9.89s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:02<00:00,  2.97s/it]
+                   all         17          9      0.733      0.433      0.696      0.475
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      34/50         0G     0.5495      1.796      1.091         19        640: 100%|██████████| 4/4 [00:32<00:00,  8.07s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<00:00,  3.40s/it]
+                   all         17          9      0.847      0.432      0.695      0.467
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      35/50         0G     0.5194      1.648      1.098         17        640: 100%|██████████| 4/4 [00:30<00:00,  7.57s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<00:00,  3.17s/it]
+                   all         17          9      0.867      0.421      0.509      0.369
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      36/50         0G     0.5542      1.734       1.15         25        640: 100%|██████████| 4/4 [00:31<00:00,  7.76s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<00:00,  3.04s/it]
+                   all         17          9      0.875      0.411       0.49      0.362
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      37/50         0G     0.5231       1.67      1.084         15        640: 100%|██████████| 4/4 [00:30<00:00,  7.70s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:04<00:00,  4.35s/it]
+                   all         17          9      0.803      0.367      0.449       0.35
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      38/50         0G     0.5477      1.696      1.103         15        640: 100%|██████████| 4/4 [00:45<00:00, 11.47s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:04<00:00,  4.45s/it]
+                   all         17          9      0.803      0.367      0.446       0.35
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      39/50         0G     0.5714      1.886      1.161         12        640: 100%|██████████| 4/4 [00:34<00:00,  8.74s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:04<00:00,  4.26s/it]
+                   all         17          9      0.803      0.367      0.444      0.356
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      40/50         0G     0.5699      1.708      1.193         11        640: 100%|██████████| 4/4 [00:36<00:00,  9.17s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<00:00,  3.77s/it]
+                   all         17          9      0.802      0.367      0.502      0.383
+Closing dataloader mosaic
+C:\Users\urssa\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      41/50         0G     0.4338      2.588      1.125          3        640: 100%|██████████| 4/4 [00:41<00:00, 10.37s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<00:00,  3.85s/it]
+                   all         17          9      0.808      0.367      0.593      0.427
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      42/50         0G     0.4441      2.404       1.01          9        640: 100%|██████████| 4/4 [00:39<00:00,  9.83s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:04<00:00,  4.60s/it]
+                   all         17          9       0.79      0.367      0.461      0.362
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      43/50         0G      0.473      2.291      1.136         11        640: 100%|██████████| 4/4 [00:40<00:00, 10.11s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:04<00:00,  4.30s/it]
+                   all         17          9      0.768      0.367      0.476       0.37
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      44/50         0G     0.3864      2.104      1.001          9        640: 100%|██████████| 4/4 [00:39<00:00,  9.93s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:04<00:00,  4.57s/it]
+                   all         17          9      0.747      0.367      0.505      0.385
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      45/50         0G     0.4293      2.288     0.9662          8        640: 100%|██████████| 4/4 [00:44<00:00, 11.21s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:04<00:00,  4.90s/it]
+                   all         17          9      0.734      0.366      0.502       0.38
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      46/50         0G     0.4818      2.316      1.158          7        640: 100%|██████████| 4/4 [00:42<00:00, 10.64s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:04<00:00,  4.96s/it]
+                   all         17          9      0.726      0.359      0.504      0.386
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      47/50         0G     0.4392      2.486      1.087          6        640: 100%|██████████| 4/4 [00:43<00:00, 10.97s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:04<00:00,  4.98s/it]
+                   all         17          9      0.721      0.353      0.498      0.381
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      48/50         0G     0.4401      2.375      1.169          6        640: 100%|██████████| 4/4 [00:44<00:00, 11.06s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:04<00:00,  4.93s/it]
+                   all         17          9      0.735       0.36      0.504      0.388
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      49/50         0G     0.4808      2.273      1.126          6        640: 100%|██████████| 4/4 [00:46<00:00, 11.52s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:04<00:00,  4.93s/it]
+                   all         17          9      0.749      0.362      0.511      0.391
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+      50/50         0G     0.4778      2.336      1.149          7        640: 100%|██████████| 4/4 [00:44<00:00, 11.06s/it]
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:05<00:00,  5.09s/it]
+                   all         17          9      0.758      0.363      0.478      0.373
+
+50 epochs completed in 0.594 hours.
+Optimizer stripped from runs\detect\train\weights\last.pt, 6.3MB
+Optimizer stripped from runs\detect\train\weights\best.pt, 6.3MB
+
+Validating runs\detect\train\weights\best.pt...
+Ultralytics 8.3.139  Python-3.11.9 torch-2.7.0+cpu CPU (Intel Core(TM) i7-8650U 1.90GHz)
+Model summary (fused): 72 layers, 3,009,548 parameters, 0 gradients, 8.1 GFLOPs
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 1/1 [00:03<00:00,  3.84s/it]
+                   all         17          9      0.736      0.433      0.696      0.475
+                  bear          1          1          1          0      0.995      0.497
+                 apple          2          2          1          0       0.19      0.145
+                tomato          2          3      0.726      0.667       0.72      0.579
+              kangaroo          2          2      0.375        0.5      0.578      0.357
+                  lion          1          1       0.58          1      0.995      0.796
+Speed: 4.8ms preprocess, 189.9ms inference, 0.0ms loss, 2.8ms postprocess per image
+Results saved to runs\detect\train
+
+0: 640x640 (no detections), 143.2ms
+1: 640x640 (no detections), 143.2ms
+2: 640x640 (no detections), 143.2ms
+3: 640x640 (no detections), 143.2ms
+4: 640x640 (no detections), 143.2ms
+5: 640x640 (no detections), 143.2ms
+6: 640x640 2 tomatos, 143.2ms
+7: 640x640 (no detections), 143.2ms
+Speed: 6.6ms preprocess, 143.2ms inference, 2.8ms postprocess per image at shape (1, 3, 640, 640)
+Results saved to results\3_inference
+Label: tomato, Confidence: 0.87, Box: [     5.0869      21.313      1482.3        1192]
+Label: tomato, Confidence: 0.34, Box: [     46.278      25.329        1064      1179.2]
+Ultralytics 8.3.139  Python-3.11.9 torch-2.7.0+cpu CPU (Intel Core(TM) i7-8650U 1.90GHz)
+val: Fast image access  (ping: 0.30.0 ms, read: 63.365.1 MB/s, size: 68.3 KB)
+val: Scanning C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1.cache... 28 images, 9 backgrounds, 11 corrupt: 100%|██████████| 28/28 [00:00
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\Bear_10.jpg: ignoring corrupt image/label: Label class 21 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\Bird_15.jpeg: ignoring corrupt image/label: Label class 42 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\Zebra_20.jpeg: ignoring corrupt image/label: Label class 22 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\dog_442.jpg: ignoring corrupt image/label: Label class 77 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\hydrangeas_00070.jpg: ignoring corrupt image/label: Label class 58 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\img_p1_25.jpeg: ignoring corrupt image/label: Label class 75 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\img_p3_124.jpeg: ignoring corrupt image/label: Label class 50 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\img_p3_50.jpeg: ignoring corrupt image/label: Label class 47 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\lilies_00069.jpg: ignoring corrupt image/label: Label class 58 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\peonies_00006.jpg: ignoring corrupt image/label: Label class 58 exceeds dataset class count 20. Possible class labels are 0-19
+val: C:\Sanjeev\VNIT_CLASSES\VNIT-AAI-SEM3\custom_dataset_yolo\test_1\peonies_00077.jpg: ignoring corrupt image/label: Label class 58 exceeds dataset class count 20. Possible class labels are 0-19
+C:\Users\urssa\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 2/2 [00:06<00:00,  3.49s/it]
+                   all         17          9      0.736      0.433      0.696      0.475
+                  bear          1          1          1          0      0.995      0.497
+                 apple          2          2          1          0       0.19      0.145
+                tomato          2          3      0.726      0.667       0.72      0.579
+              kangaroo          2          2      0.375        0.5      0.578      0.357
+                  lion          1          1       0.58          1      0.995      0.796
+Speed: 8.3ms preprocess, 336.5ms inference, 0.0ms loss, 2.6ms postprocess per image
+Results saved to runs\detect\train2
+Metrics could not be calculated. Check if your validation set has labels.
+Error: 'numpy.float64' object is not callable
